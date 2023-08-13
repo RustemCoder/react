@@ -1,30 +1,28 @@
 import logo from './logo.svg';
+import React from "react";
 import './App.css';
-import Heading from "./Heading";
-import Card from "./Card"
+import Fruits from './components/Fruits';
+import FruitsCounter from "./components/FruitsCounter";
 function App() {
-  function thirdExample() {
+ 
+  const [fruits] = React.useState([
+    {fruitName: 'apple', id: 1},
+    {fruitName: 'apple', id: 2},
+    {fruitName: 'plum', id: 3},
+]);
+  
+function thirdExample() {
     console.log('third example');
   };
   const fourthExample = () => console.log('fourth example');
+
   return (
     <div className="App">
-    <Card h2="First card's h2" h3="First card's h3" />
-      <Card h2="Second card's h2" h3="Second card's h3" />
-      <Card h2="Third card's h2" h3="Third card's h3"/>
-      <button onClick={function() {console.log('first example')}}>
-    An inline anonymous ES5 function event handler
-</button>
-<button onClick={() => console.log('second example')}>
-    An inline anonymous ES6 function event handler
-</button>
-<button onClick={thirdExample}>
-    An inline anonymous ES6 function event handler
-</button>
-<button onClick={fourthExample}>
-    An inline anonymous ES6 function event handler
-</button>
+      <h1>Where should the state go?</h1>
+      <Fruits fruits = {fruits} />
+      <FruitsCounter fruits = {fruits} />
     </div>
+
   );
 }
 
